@@ -5,7 +5,7 @@ plugins {
 
 }
 
-    tasks {
+tasks {
 
     named<ShadowJar>("shadowJar") {
         archiveBaseName.set("hw01")

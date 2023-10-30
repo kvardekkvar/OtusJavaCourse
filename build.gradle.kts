@@ -26,7 +26,7 @@ subprojects {
     dependencies {
         val guava: String by project
 
-        implementation( "com.google.guava:guava:$guava")
+        implementation("com.google.guava:guava:$guava")
     }
 
 
