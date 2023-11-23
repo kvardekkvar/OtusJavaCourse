@@ -2,7 +2,6 @@ package org.example;
 
 import org.jetbrains.annotations.NotNull;
 
-//SuppressWarnings({"java:S1135"}) // при выполнении ДЗ эту аннотацию надо удалить
 public class Customer implements Comparable<Customer>, Cloneable {
     private final long id;
     private String name;

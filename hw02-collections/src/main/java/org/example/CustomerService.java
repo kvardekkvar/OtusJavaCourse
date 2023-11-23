@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.*;
 
-@SuppressWarnings({"java:S1186", "java:S1135", "java:S1172"}) // при выполнении ДЗ эту аннотацию надо удалить
 public class CustomerService {
 
     // DONE: 3. надо реализовать методы этого класса
