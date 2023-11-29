@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class TestRunner {
 
-    public void runTest(String className) {
+    public void runTestClass(String className) {
         Class<?> testClass = null;
 
         try {

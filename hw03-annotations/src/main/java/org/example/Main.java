@@ -5,6 +5,6 @@ public class Main {
 
         TestRunner testRunner = new TestRunner();
 
-        testRunner.runTest("org.example.ExampleTest");
+        testRunner.runTestClass("org.example.ExampleTest");
     }
 }
