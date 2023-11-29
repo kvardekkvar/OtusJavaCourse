@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class TestRunner {
 
-    public void runTestClass(String className) {
+    public static void runTestClass(String className) {
         Class<?> testClass = null;
 
         try {
@@ -33,7 +33,7 @@ public class TestRunner {
                 afterMethods.add(method);
             }
         }
-        Map<Method, Boolean> testResults = executeMethods(testClass, beforeMethods, testMethods, afterMethods);
+        Map<Method, Boolean> testResults = runTests(testClass, beforeMethods, testMethods, afterMethods);
 
 
         Long totalTests = (long) testResults.size();
@@ -60,7 +60,7 @@ public class TestRunner {
         System.out.println("========================================================");
     }
 
-    private Map<Method, Boolean> executeMethods(Class<?> testClass, List<Method> beforeMethods, List<Method> testMethods, List<Method> afterMethods) {
+    private static Map<Method, Boolean> runTests(Class<?> testClass, List<Method> beforeMethods, List<Method> testMethods, List<Method> afterMethods) {
 
         Map<Method, Boolean> testResults = new HashMap<>();
         for (Method method : testMethods) {
@@ -90,7 +90,7 @@ public class TestRunner {
         return testResults;
     }
 
-    private Object getTestClassInstance(Class<?> testClass) {
+    private static Object getTestClassInstance(Class<?> testClass) {
         Object testClassInstance;
         try {
             testClassInstance = testClass.getDeclaredConstructor().newInstance();
@@ -101,7 +101,7 @@ public class TestRunner {
         return testClassInstance;
     }
 
-    private boolean executeMethods(Object testClassInstance, List<Method> methods) {
+    private static boolean executeMethods(Object testClassInstance, List<Method> methods) {
 
         for (Method method : methods) {
             try {
@@ -115,7 +115,7 @@ public class TestRunner {
     }
 
 
-    private boolean executeTest(Object testClassInstance, Method method) {
+    private static boolean executeTest(Object testClassInstance, Method method) {
         try {
             method.invoke(testClassInstance);
         } catch (Exception e) {
