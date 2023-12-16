@@ -1,0 +1,7 @@
+                    Raw                                 Optimized
+
+256mb               spend msec:24385, sec:24            spend msec:1117, sec:1
+512mb               spend msec:17494, sec:17            spend msec:1097, sec:1
+1024mb (optimal)    spend msec:16241, sec:16            spend msec:1109, sec:1
+2048mb              spend msec:16244, sec:16            spend msec:1094, sec:1
+
