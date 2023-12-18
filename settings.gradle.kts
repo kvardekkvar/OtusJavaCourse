@@ -12,3 +12,5 @@ plugins {
 
 }
 }
+include("hw05-bytecodes")
+include("hw06-oop")
