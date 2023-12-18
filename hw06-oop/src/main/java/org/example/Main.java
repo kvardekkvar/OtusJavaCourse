@@ -1,19 +1,33 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import org.example.money.Banknote;
+import org.example.money.RubleBanknote;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
+        List<Banknote> wage = new ArrayList<>();
+
+        for (int i = 0; i < 20; i++) {
+            Banknote banknote = new RubleBanknote().setValue(5000);
+            wage.add(banknote);
         }
+
+        wage.add(new RubleBanknote().setValue(500));
+        wage.add(new RubleBanknote().setValue(1000));
+        wage.add(new RubleBanknote().setValue(500));
+
+        ATM atm = ATMFactory.newRubleCashATM();
+        System.out.printf("Total deposit: %s\n", atm.getTotalBalance());
+        atm.put(wage);
+        System.out.printf("Total deposit: %s\n", atm.getTotalBalance());
+        var result = atm.withdraw(1500);
+        System.out.printf("SUCCESS: %s\n",result.isSuccess());
+        System.out.printf("Total deposit: %s\n", atm.getTotalBalance());
+
     }
 }

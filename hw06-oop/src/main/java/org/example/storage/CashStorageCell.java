@@ -1,11 +1,12 @@
 package org.example.storage;
 
+import lombok.extern.java.Log;
 import org.example.money.Banknote;
 import org.example.money.WithdrawalResult;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Log
 public class CashStorageCell implements StorageCell {
 
     public final Integer banknoteValue;
@@ -48,6 +49,7 @@ public class CashStorageCell implements StorageCell {
 
     @Override
     public WithdrawalResult withdrawBanknotes(int numberOfBanknotesToWithdraw) {
+        log.info("WITHDRAWING " + banknoteValue + " x " + numberOfBanknotesToWithdraw);
         WithdrawalResult result = new WithdrawalResult();
 
         if (numberOfBanknotesToWithdraw > numberOfBanknotes) {
@@ -56,8 +58,8 @@ public class CashStorageCell implements StorageCell {
         }
 
         try {
-            List<Banknote> withdrawnBanknotes = banknotes.subList(0, numberOfBanknotesToWithdraw - 1);
-            banknotes = banknotes.subList(numberOfBanknotesToWithdraw, numberOfBanknotes - 1);
+            List<Banknote> withdrawnBanknotes = banknotes.subList(0, numberOfBanknotesToWithdraw);
+            banknotes = banknotes.subList(numberOfBanknotesToWithdraw, numberOfBanknotes);
             numberOfBanknotes -= numberOfBanknotesToWithdraw;
 
             result.setBanknotes(withdrawnBanknotes);
